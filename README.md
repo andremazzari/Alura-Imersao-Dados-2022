@@ -1,7 +1,24 @@
-Alura-Imersao-Dados-2022
+Imersão de Dados Alura - 2022
 ==============================
+The <i>Imersão Dados</i> is a event promoted by [Alura](https://www.alura.com.br/), an online school that provides courses for different technologies, focused in presenting the principal tools of a data scientist and in developing a data science project. The event consists in 5 days of lives, where experts in the field show how to perform common activities related to data science, and then some practical task are proposed to the audiance.
+<br><br>
+In the edition of 2022, the project was about developing a machine learning model to predict the prices of houses in São Paulo city. For this, it was used a [database](https://www.kaggle.com/datasets/kaggleshashankk/house-price-data-of-sao-paulo) with some information about houses in São Paulo, together with their prices. A great part of the time was spend in cleaning and exploring this database. To make the machine learning models more accurate, it was proposed to use external data from [IBGE](https://www.ibge.gov.br/) (Brazilian Institute of Geography and Statistics) concerning the socio-economic data from different regions of the city. This was the most challenging step of the project, and to make the connection between the original database and this external database from IBGE, it was necessary to use other two databases. But in the end it was worth it, since there was a great improviment in the prediction of prices after adding this external data.
+<br><br>
+Some of the libraries used in this project were **Numpy**, **Pandas**, **Matplotlib**, **Seaborn**, **Plotly**, **Geopandas** and **Sklearn**.
+<br><br>
+In what follows, I will briefly describe the main tasks done in each day of the event.
 
-A short description of the project.
+## Description
+
+### Day 1:
+
+### Day 2:
+
+### Day 3:
+
+### Day 4:
+
+### Day 5:
 
 Project Organization
 ------------
