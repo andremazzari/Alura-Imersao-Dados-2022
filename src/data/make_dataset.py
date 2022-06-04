@@ -18,7 +18,7 @@ def AddIBGEdata(df):
     df_merged.drop_duplicates(subset=df.columns, inplace = True)
 
     #Get data from censo sectors  in Sao Paulo using geopandas
-    setor_censo = gpd.read_file('../data/raw/35SEE250GC_SIR.shp')
+    setor_censo = gpd.read_file('../data/external/Data_Geopandas/35SEE250GC_SIR.shp')
     setor_censo_sp = setor_censo[setor_censo.NM_MUNICIP == "SÃO PAULO"]
 
     df_merged["Point"] = ""
@@ -27,14 +27,14 @@ def AddIBGEdata(df):
     df_merged['setor_censo'] = df_merged["Point"].map(lambda x: setor_censo_sp.loc[setor_censo_sp.contains(x), 'CD_GEOCODI'].values).str[0]
 
     df_merged['setor_censo'] = pd.to_numeric(df_merged['setor_censo'])
-
+    
+    #Drop rows with NaN value in 'setor_censo'
+    df_merged.drop(df_merged[df_merged['setor_censo'].isnull()].index.tolist(), axis = 0, inplace = True)
+    
     #Get data from IBGE (already clenaed)
     df_ibge = pd.read_csv('../data/interim/IBGE_cleaned.csv')
 
     #Merge the original dataframe with IBGE dataframe
     df_prices_ibge = pd.merge(left = df_merged, right = df_ibge, how = "left", left_on = "setor_censo", right_on = "Cod_setor")
-
-    #Drop rows with NaN value in 'setor_censo'
-    df_prices_ibge.drop(df_prices_ibge[df_prices_ibge['setor_censo'].isnull()].index.tolist(), axis = 0, inplace = True)
 
     return df_prices_ibge[['Metragem', 'Quartos', 'Banheiros', 'Vagas', 'Valor', 'V005', 'V007', 'V009', 'V011']]
