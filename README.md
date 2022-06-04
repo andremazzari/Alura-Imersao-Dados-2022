@@ -1,5 +1,10 @@
 Imersão de Dados Alura - 2022
 ==============================
+<p align="center">
+  <img src="./images/sao-paulo-panoramic.jpg" />
+   </div>
+</p>
+
 The <i>Imersão Dados</i> is an event focused in presenting the principal tools of a data scientist and in developing a data science project. It is promoted by [Alura](https://www.alura.com.br/), an online school that provides courses for different technologies. The event consists of 5 days of lives, where experts in the field show how to perform common activities related to data science, and then propose some practical tasks to the audiance.
 <br><br>
 In the edition of 2022, the project was about developing a machine learning model to **predict the prices of houses** in São Paulo city. For this, it was used a [database](https://www.kaggle.com/datasets/kaggleshashankk/house-price-data-of-sao-paulo) with some information about houses in São Paulo, together with their prices. A great part of the time was spend in cleaning and exploring this database. To make the machine learning models more accurate, it was proposed to use external data from [IBGE](https://www.ibge.gov.br/) (Brazilian Institute of Geography and Statistics) concerning the socio-economic data from different regions of the city. This was the most challenging step of the project, and to make the connection between the original database and this external database from IBGE, it was necessary to use other two databases. But in the end, it was worth it, since there was a great improviment in the prediction of prices after adding this external data.
