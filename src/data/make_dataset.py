@@ -2,6 +2,27 @@ import numpy as np
 import pandas as pd
 import geopandas as gpd
 from shapely.geometry import Point
+import os, sys
+
+def DownloadAllData():
+    #Create '/data/' folder does not exist, create
+    path = os.path.dirname(__file__) + './../../data/'
+    if os.path.exists(path) == False:
+        os.mkdir(path)
+    #Create subfolders
+    for subfolder in ['external', 'interim', 'processed', 'raw']:
+        if os.path.exists(path + subfolder) == False:
+            os.mkdir(path + subfolder)
+
+    #Download and save database of house prices in São Paulo
+    url = "https://gist.githubusercontent.com/tgcsantos/3bdb29eba6ce391e90df2b72205ba891/raw/22fa920e80c9fa209a9fccc8b52d74cc95d1599b/dados_imoveis.csv"
+    pd.read_csv(url).to_csv(path + 'raw/SP_house_prices_raw.csv', index = False)
+
+    #Download IBGE data
+    url = "https://gist.githubusercontent.com/tgcsantos/85f8c7b0a2edbc3e27fcad619b37d886/raw/a4954781e6bca9cb804062a3eea0b3b84679daf4/Basico_SP1.csv"
+    pd.read_csv(url, sep = ';', encoding = 'utf-8', decimal = ',').to_csv('../data/external/IBGE_raw.csv', index = False)
+
+
 
 def AddIBGEdata(df):
     #Read data from enderecos.csv
@@ -38,3 +59,5 @@ def AddIBGEdata(df):
     df_prices_ibge = pd.merge(left = df_merged, right = df_ibge, how = "left", left_on = "setor_censo", right_on = "Cod_setor")
 
     return df_prices_ibge[['Metragem', 'Quartos', 'Banheiros', 'Vagas', 'Valor', 'V005', 'V007', 'V009', 'V011']]
+
+DownloadAllData()
