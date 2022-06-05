@@ -11,6 +11,8 @@ In the edition of 2022, the project was about developing a machine learning mode
 <br><br>
 Some of the libraries used in this project were **Numpy**, **Pandas**, **Matplotlib**, **Seaborn**, **Plotly**, **Geopandas**, and **Sklearn**. The machine learning models considered were **Linear Regression**, **Decision Trees**, and **Random Forest**.
 <br><br>
+The data used in the project has not been uploaded to github. Read the README of '/src/data' for instruction in how to download it.
+<br><br>
 In what follows, I will briefly describe the main tasks done during the event. The notebooks with the codes for the tasks for each day can be found in the folder 'notebooks'.
 
 ## Description
@@ -59,22 +61,9 @@ Project Organization
     │                         generated with `pip freeze > requirements.txt`
     │
     ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
     │   │
     │   ├── data           <- Scripts to download or generate data
     │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-
 
 --------
 
