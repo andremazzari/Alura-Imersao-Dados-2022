@@ -13,6 +13,8 @@ def DownloadAllData():
     for subfolder in ['external', 'interim', 'processed', 'raw']:
         if os.path.exists(path + subfolder) == False:
             os.mkdir(path + subfolder)
+    if os.path.exists(path + 'external/Data_Geopandas') == False:
+        os.mkdir(path + 'external/Data_Geopandas')
 
     #Download and save database of house prices in São Paulo
     url = "https://gist.githubusercontent.com/tgcsantos/3bdb29eba6ce391e90df2b72205ba891/raw/22fa920e80c9fa209a9fccc8b52d74cc95d1599b/dados_imoveis.csv"
